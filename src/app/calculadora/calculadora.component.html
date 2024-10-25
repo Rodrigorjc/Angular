@@ -1,0 +1,24 @@
+<div class="container mt-4">
+  <h2>Calculadora Simple</h2>
+
+  <div class="mb-3">
+    <label for="numero1" class="form-label">Número 1:</label>
+    <input type="number" id="numero1" class="form-control" [(ngModel)]="numero1" placeholder="Introduce el primer número">
+  </div>
+
+  <!-- Este campo solo se muestra cuando no estamos haciendo una raíz cuadrada -->
+  <div class="mb-3" *ngIf="mostrarSegundoNumero()">
+    <label for="numero2" class="form-label">Número 2:</label>
+    <input type="number" id="numero2" class="form-control" [(ngModel)]="numero2" placeholder="Introduce el segundo número">
+  </div>
+
+  <button class="btn btn-primary me-2" (click)="sumar()">Sumar</button>
+  <button class="btn btn-secondary me-2" (click)="restar()">Restar</button>
+  <button class="btn btn-success me-2" (click)="multiplicar()">Multiplicar</button>
+  <button class="btn btn-warning me-2" (click)="dividir()">Dividir</button>
+  <button class="btn btn-info me-2" (click)="raizCuadrada()">Raíz Cuadrada</button>
+
+  <hr>
+
+  <h3>Resultado: {{ resultado }}</h3>
+</div>

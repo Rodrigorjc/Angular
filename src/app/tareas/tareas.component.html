@@ -1,0 +1,8 @@
+
+<div>
+  <input class="form-control" [(ngModel)]="nuevaTarea" placeholder="Añade una tarea:"/>
+  <button class="btn btn-outline-dark mt-2" (click)="addTarea()">Añadir tarea</button>
+</div>
+<ul class="list-group   ">
+  <li class="list-group-item" *ngFor="let task of lista">{{ task }}</li>
+</ul>

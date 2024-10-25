@@ -1,0 +1,38 @@
+<div class="container-fluid m-4 pb-4">
+  <div class="row">
+    <!-- Columna de la izquierda: Lista de artículos -->
+    <div class="col-md-6">
+      <h3>Lista de Artículos</h3>
+      <ul class="list-group">
+        <li *ngFor="let articulo of articulos" class="list-group-item d-flex justify-content-between align-items-center">
+          <div>
+            <h5>{{ articulo.nombre }}</h5>
+            <p>{{ articulo.precio | currency: 'EUR' }} / unidad</p>
+          </div>
+
+          <div>
+            <button class="btn btn-danger btn-sm me-2" (click)="disminuirCantidad(articulo)">-</button>
+            <span>{{ articulo.cantidad }}</span>
+            <button class="btn btn-success btn-sm ms-2" (click)="incrementarCantidad(articulo)">+</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Columna de la derecha: Ticket de compra -->
+    <div class="col-md-6">
+      <h3>Ticket de Compra</h3>
+      <ul class="list-group">
+        <li *ngFor="let articulo of articulos" class="list-group-item">
+          <div class="d-flex justify-content-between">
+            <span>{{ articulo.nombre }} ({{ articulo.cantidad }} x {{ articulo.precio | currency: 'EUR' }})</span>
+            <span>{{ (articulo.cantidad * articulo.precio).toFixed(2) }} </span>
+          </div>
+        </li>
+      </ul>
+
+      <hr>
+      <h4>Total: {{ calcularTotal() | currency: 'EUR' }}</h4>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="container mt-4">
+  <h2>Ingresar Información del Producto</h2>
+
+  <form (ngSubmit)="enviarProducto()">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre del producto:</label>
+      <input type="text" id="nombre" class="form-control" [(ngModel)]="nombre" name="nombre" placeholder="Nombre del producto" />
+    </div>
+
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">Descripción:</label>
+      <textarea id="descripcion" class="form-control" [(ngModel)]="descripcion" name="descripcion" placeholder="Descripción del producto"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="precio" class="form-label">Precio:</label>
+      <input type="number" id="precio" class="form-control" [(ngModel)]="precio" name="precio" placeholder="Precio del producto" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar Producto</button>
+  </form>
+
+  <hr>
+
+  <!-- Mostrar la lista de productos agregados -->
+  <div *ngIf="productos.length > 0" class="mt-4">
+    <h3>Lista de Productos</h3>
+    <ul class="list-group">
+      <li *ngFor="let producto of productos" class="list-group-item">
+        <h5>Nombre: {{ producto.nombre }}</h5>
+        <p>Descripción: {{ producto.descripcion }}</p>
+        <p class="text-success">Precio: {{ producto.precio }}€</p>
+      </li>
+    </ul>
+  </div>
+</div>
